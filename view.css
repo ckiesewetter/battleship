@@ -18,3 +18,7 @@ table {
 .torpedo {
     background-color: #d62d20;
 }
+
+.hitShip {
+  background-color: blue;
+}
