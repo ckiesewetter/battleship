@@ -37,7 +37,7 @@ $(document).ready(function(){
 });//doc.ready
 
 
-// Counter for torpedo
+// Counter for torpedo 
 // Each time the player clicks, subtract 1 from 25 counter.
 
   // function torpedoCount(){
