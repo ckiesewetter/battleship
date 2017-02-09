@@ -1,25 +1,32 @@
 $(document).ready(function(){
+
   function buildTable() {
     //variable keeps track of current row
     var currentRow = 0;
     var column = 0
     //for loop creates 100 cell table
-    for(var i = 0; i <100; i++){
-      // if counter%10 is 0, make a new row
-      if ( i % 10 == 0 ){
-        currentRow = i/10; //update current row
-        $("#board").append('<tr id="row' + currentRow + '"</tr>'); //create a new table row with id "row<currentRow>"
-        }
-        $("#row"+ currentRow).append("<td data-index = " + i + "></td>"); //makes a new table cell with id "index<i>" under "row<currentRow"
-       }
+    for(var row = 0; row < 10; row++){
+      //create a new table row with id "row<currentRow>"
+      $("#board").append('<tr id="row' + row + '"</tr>');
+      // create 10 <td>s for each <tr>
+      for (var col = 0; col < 10; col++) {
+        //makes a new table cell with id "index<i>" under "row<currentRow"
+        $("#row"+ row).append("<td data-index=" + row + col + "></td>");
+      }
+    }
   }
+
   // call function to build the table
   buildTable();
   placeShips();
   var clickCounter = 0;
+
   // create an onclick event to torpedo a ship
   $("td").on("click", function(){
     $(this).addClass("torpedo");
+
+
+
     // we need to call a var that refers to the rows/columns in the html
     var squared = $(this).data("index").toString();
 
@@ -29,15 +36,27 @@ $(document).ready(function(){
     hitShip(row, col);
     if (clickCounter < 25) {
       clickCounter = clickCounter + 1;
+    } else if (clickCounter == 25) {
+      console.log("You lose, you don't have any tries left");
+      $(this).addClass("whereTheShipsWere");
     }
-    console.log(clickCounter);
+    // console.log(clickCounter);
+    ////^^^^ DON'T CHANGE ANYTHING ABOVE THIS LINE
+
+    //
+    // if (hitCounter < 5) {
+    //   hitCounter = hitCounter + 1;
+    // }
+
+    console.log("You have clicked:" + clickCounter);
+
   });
   console.log(board);
 
 });//doc.ready
 
 
-// Counter for torpedo 
+// Counter for torpedo
 // Each time the player clicks, subtract 1 from 25 counter.
 
   // function torpedoCount(){

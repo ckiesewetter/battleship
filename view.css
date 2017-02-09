@@ -16,9 +16,13 @@ table {
 }
 
 .torpedo {
-    background-color: #d62d20;
+  background-color: #d62d20;
 }
 
 .hitShip {
-  background-color: blue;
+  background-color:  blue;
+}
+
+.whereTheShipsWere {
+  background-color: black;
 }
