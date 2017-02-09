@@ -15,11 +15,11 @@ var miss = -1;
 var ship = 1;
 var hit = 2;
 var hitCounter = 0;
-var fiveShips = [];
+var fiveShipsArray = [];
 
 
 function placeShips(){
-  for (var i = 0; i <= 5; i++) {
+  for (var i = 1; i <= 5; i++) {
    // var random row = random number
    var row = Math.floor (Math.random() * 10);
    // var random col = random number
@@ -31,13 +31,40 @@ function placeShips(){
     //   column = Math.floor (Math.random() * 10);
     // }
    board[row][column] = ship;
-   fiveShips.push( (row.toString() + column.toString()) );
-   console.log(fiveShips);
  }
-}
-    function returnBoard(){
-    return board;
+ //closes placeShips
+};
+
+//Reveal ships on the board
+function fiveShips() {
+//Go through every row to find the comliumns
+  for (row = 0; row < 10; row++){
+    //Go through every column if the posistion is a 1  or not
+    for (column = 0; column < 10; column++){
+      //Display ships if it is a 1.
+      if(board[row][column] == 1){
+
+          $('td[data-index="' + row + '-' + column + '"]').addClass("whereTheShipsWere")
+      }
+    }
+
   }
+  for (row = 0; row < 10; row++){
+
+    if (row == 1){
+      fiveShipsArray.push(row);
+    }
+    for (column = 0; column < 10; column++){
+      if (column == 1){
+        fiveShipsArray.push(column);
+      };
+    }
+  }
+}//closes fiveShips
+
+function returnBoard(){
+  console.log(board);
+}
 
 function hitShip(row, col){
   //place a var inside this that represents the square we hit
@@ -58,10 +85,8 @@ function hitShip(row, col){
     }
     if (hitCounter == 5) {
       alert("You win!");
-    // } else if (clickCounter == 25 && hitCounter < 5)
-  }
-}
-
+    }
+};
 
 
 ///this might nedd to go in jquery

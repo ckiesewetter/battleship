@@ -2,7 +2,7 @@ $(document).ready(function(){
 
   function buildTable() {
     //variable keeps track of current row
-    var currentRow = 0;
+    var row = 0;
     var column = 0
     //for loop creates 100 cell table
     for(var row = 0; row < 10; row++){
@@ -11,10 +11,10 @@ $(document).ready(function(){
       // create 10 <td>s for each <tr>
       for (var col = 0; col < 10; col++) {
         //makes a new table cell with id "index<i>" under "row<currentRow"
-        $("#row"+ row).append("<td data-index=" + row + col + "></td>");
+        $("#row"+ row).append("<td data-index=" + row + "-" + col + "></td>");
       }
     }
-  }
+  }//closes buildTable
 
   // call function to build the table
   buildTable();
@@ -38,7 +38,9 @@ $(document).ready(function(){
       clickCounter = clickCounter + 1;
     } else if (clickCounter == 25) {
       console.log("You lose, you don't have any tries left");
-      $(this).addClass("whereTheShipsWere");
+      // we will use jquery to show the 5 ships once the game is lost
+
+        $(fiveShips()).addClass("whereTheShipsWere");
     }
     // console.log(clickCounter);
     ////^^^^ DON'T CHANGE ANYTHING ABOVE THIS LINE
@@ -52,6 +54,7 @@ $(document).ready(function(){
 
   });
   console.log(board);
+  // console.log(board);
 
 });//doc.ready
 
@@ -63,7 +66,7 @@ $(document).ready(function(){
   //   var counter = 0
   //   while (counter <= 25) {
   //     console.log(counter++);
-  //       $("torpedoCount").html("You have " + counter + "torpedos!")
+        // $("torpedoCount").html("You have " + counter + "torpedos!")
   //   }
   // }
 
