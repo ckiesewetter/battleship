@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+ 
   function buildTable() {
     //variable keeps track of current row
     var row = 0;

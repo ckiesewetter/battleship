@@ -43,24 +43,12 @@ function fiveShips() {
     for (column = 0; column < 10; column++){
       //Display ships if it is a 1.
       if(board[row][column] == 1){
-
           $('td[data-index="' + row + '-' + column + '"]').addClass("whereTheShipsWere")
       }
     }
-
   }
-  for (row = 0; row < 10; row++){
+};
 
-    if (row == 1){
-      fiveShipsArray.push(row);
-    }
-    for (column = 0; column < 10; column++){
-      if (column == 1){
-        fiveShipsArray.push(column);
-      };
-    }
-  }
-}//closes fiveShips
 
 function returnBoard(){
   console.log(board);
@@ -78,6 +66,7 @@ function hitShip(row, col){
       hitCounter = hitCounter + 1;
       console.log("You've hit :" + hitCounter);
       alert ("You torpedoed a ship!! Awesome!");
+      $('td[data-index="' + row + '-' + column + '"]').addClass("hitShip")
     } else if (board[row][col] == -1){
       alert("You already tried here, there's no ship!");
     } else if (board[row][col] == 2) {
@@ -87,6 +76,3 @@ function hitShip(row, col){
       alert("You win!");
     }
 };
-
-
-///this might nedd to go in jquery
