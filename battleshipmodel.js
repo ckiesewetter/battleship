@@ -15,7 +15,6 @@ var miss = -1;
 var ship = 1;
 var hit = 2;
 var hitCounter = 0;
-var fiveShipsArray = [];
 
 
 function placeShips(){
@@ -44,6 +43,10 @@ function fiveShips() {
       //Display ships if it is a 1.
       if(board[row][column] == 1){
           $('td[data-index="' + row + '-' + column + '"]').addClass("whereTheShipsWere")
+      // if (board[row][column] == 2) {
+      //   $('td[data-index]="' + row + '_' + column + '"]').addClass("hitShip")
+      // }
+      console.log("You've hit a ship at position: " + row + column);
       }
     }
   }
@@ -54,25 +57,30 @@ function returnBoard(){
   console.log(board);
 }
 
-function hitShip(row, col){
-  //place a var inside this that represents the square we hit
-    if ( board[row][col] === 0) {
-      //reassign the empty square to a miss (-1)
-       board[row][col] = miss;
-      alert ("You miss!");
-    } else if (board[row][col] == 1) {
-      //reassign the 1 to a hit which we can call 2
-      board[row][col] = hit;
-      hitCounter = hitCounter + 1;
-      console.log("You've hit :" + hitCounter);
-      alert ("You torpedoed a ship!! Awesome!");
-      $('td[data-index="' + row + '-' + column + '"]').addClass("hitShip")
-    } else if (board[row][col] == -1){
-      alert("You already tried here, there's no ship!");
-    } else if (board[row][col] == 2) {
-      alert ("You already torpedoed this ship, yo!");
-    }
-    if (hitCounter == 5) {
-      alert("You win!");
-    }
-};
+// function hitShip(row, col){
+//   //place a var inside this that represents the square we hit
+//     if ( board[row][col] === 0) {
+//       //reassign the empty square to a miss (-1)
+//        board[row][col] = miss;
+//       alert ("You miss!");
+//     } else if (board[row][col] == 1) {
+//       //reassign the 1 to a hit which we can call 2
+//       board[row][col] = hit;
+//       hitCounter = hitCounter + 1;
+//       console.log("You've hit :" + hitCounter);
+//       $('td[data-index="' + row + '-' + col + '"]').addClass("hitShip");
+//       alert ("You torpedoed a ship!! Awesome!");
+//     } else if (board[row][col] == -1){
+//       alert("You already tried here, there's no ship!");
+//     } else if (board[row][col] == 2) {
+//       alert ("You already torpedoed this ship, yo!");
+//     }
+//     if (hitCounter == 5) {
+//       alert("You win!");
+//     }
+// };
+
+
+
+//// 1) need to fix alerts
+//2) need to change color of hits
